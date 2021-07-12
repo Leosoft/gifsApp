@@ -4,6 +4,10 @@ import { GifsPageComponent } from './gifs-page/gifs-page.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ResultadosComponent } from './resultados/resultados.component';
 
+/* Material components */
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -12,11 +16,13 @@ import { ResultadosComponent } from './resultados/resultados.component';
     BusquedaComponent,
     ResultadosComponent
   ],
-  exports:[
+  exports: [
     GifsPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule,
+    MatButtonModule
   ]
 })
 export class GifsModule { }

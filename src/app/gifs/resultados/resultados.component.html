@@ -1,23 +1,53 @@
-
-
 <!--<ul>
     <li *ngFor="let gif of resultados">
         {{gif.title}}
     </li>
-</ul>-->
+  </ul>
 
 <div class="row">
- <div  *ngFor="let gif of resultados"
- class="col-md-4 col-sm-6 animate__animated animate__fadeIn">
-
+  <div
+    *ngFor="let gif of resultados"
+    class="col-md-4 col-sm-6 animate__animated animate__fadeIn">
     <div class="card">
-        <img [src]="gif.images.downsized_medium.url" [alt]="gif.title"
-        class="card-img-top">
-<div class="card-body">
-<p class="card-text">
-    {{gif.title}}
-</p>
-</div>
+      <img
+        [src]="gif.images.downsized_medium.url"
+        [alt]="gif.title"
+        class="card-img-top"/>
+      <div class="card-body">
+        <p class="card-text">
+          {{ gif.title }}
+        </p>
+      </div>
     </div>
- </div>
+  </div>
 </div>
+-->
+
+<!--
+  diseño para que los gifs se acomoden en los espacios del panel
+  segun su tamaño y se agrego un boton para descargar el gif.
+  el numero de gifs ahora es de 20 (antes 10) ya que se acomodan mejor en la pantalla
+ -->
+<ul class="mdc-image-list custom-image-list mdc-image-list--masonry">
+  <div *ngFor="let gif of resultados" class="animate__animated animate__fadeIn">
+    <li class="mdc-image-list__item">
+      <mat-card>
+        <img
+          mat-card-image
+          [src]="gif.images.downsized_medium.url"
+          [alt]="gif.title"
+        />
+        <mat-card-content>
+          <p>
+            {{ gif.title }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="downloadGif(gif)" color="primary" mat-raised-button>
+            DOWNLOAD
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </li>
+  </div>
+</ul>
