@@ -1,0 +1,5 @@
+@import "@material/image-list/mdc-image-list";
+
+.custom-image-list {
+  @include mdc-image-list-masonry-columns(4);
+}
